@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Resource & Photovoltaics Quiz</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f4f9; }
+        .quiz-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .question { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .question p { font-weight: bold; margin-bottom: 10px; }
+        label { display: block; margin: 5px 0; cursor: pointer; }
+        button { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background: #219150; }
+        #result { margin-top: 20px; font-weight: bold; text-align: center; font-size: 1.2em; display: none; }
+        .citation { font-size: 0.8em; color: #7f8c8d; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Solar Resource Quiz</h1>
+    <form id="quizForm">
+        
+        <!-- Question 1 -->
+        <div class="question">
+            <p>1. To achieve the best average year-round performance in the Northern Hemisphere, at what tilt angle should a fixed, south-facing collector be set?</p>
+            <label><input type="radio" name="q1" value="a"> Equal to the local latitude (L)</label>
+            <label><input type="radio" name="q1" value="b"> Latitude minus 15° (L - 15°)</label>
+            <label><input type="radio" name="q1" value="c"> Latitude plus 15° (L + 15°)</label>
+            <p class="citation">Source: [1], [2]</p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <p>2. For the best average SUMMER performance, the collector tilt should be approximately:</p>
+            <label><input type="radio" name="q2" value="a"> L + 15°</label>
+            <label><input type="radio" name="q2" value="b"> L - 15°</label>
+            <label><input type="radio" name="q2" value="c"> L - δ</label>
+            <p class="citation">Source: [3]</p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <p>3. What term describes the angle between the sun and the local horizon directly beneath it?</p>
+            <label><input type="radio" name="q3" value="a"> Azimuth angle (ΦS)</label>
+            <label><input type="radio" name="q3" value="b"> Declination angle (δ)</label>
+            <label><input type="radio" name="q3" value="c"> Altitude angle (β)</label>
+            <p class="citation">Source: [1], [4]</p>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <p>4. Which concept represents the area of the sky between the sun's path at the summer and winter solstices for a specific location?</p>
+            <label><input type="radio" name="q4" value="a"> Solar Window</label>
+            <label><input type="radio" name="q4" value="b"> Solar Meridian</label>
+            <label><input type="radio" name="q4" value="c"> Zenith Axis</label>
+            <p class="citation">Source: [5]</p>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <p>5. How is "Insolation" typically expressed in solar resource measurement?</p>
+            <label><input type="radio" name="q5" value="a"> Watts per square meter (W/m²)</label>
+            <label><input type="radio" name="q5" value="b"> Peak Sun Hours or kWh/m²/day</label>
+            <label><input type="radio" name="q5" value="c"> Solar time minus clock time</label>
+            <p class="citation">Source: [6], [5]</p>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit Quiz</button>
+    </form>
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateScore() {
+        const answers = { q1: "a", q2: "b", q3: "c", q4: "a", q5: "b" };
+        let score = 0;
+        const total = 5;
+        const form = document.getElementById('quizForm');
+        
+        for (let key in answers) {
+            const selected = form.elements[key].value;
+            if (selected === answers[key]) {
+                score++;
+            }
+        }
+        
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `You scored ${score} out of ${total}!`;
+        if (score === total) {
+            resultDiv.style.color = '#27ae60';
+        } else {
+            resultDiv.style.color = '#e67e22';
+        }
+    }
+</script>
+
+</body>
+</html>
