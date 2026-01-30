@@ -3,133 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Resource Technical Quiz</title>
-    <!-- MathJax script for rendering LaTeX equations -->
+    <title>Comprehensive Solar Resource Quiz</title>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f7f6; }
-        .quiz-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .question { margin-bottom: 25px; padding: 15px; border-left: 5px solid #3498db; background: #fafafa; }
-        .question p { font-weight: bold; margin-bottom: 10px; }
-        label { display: block; margin: 8px 0; cursor: pointer; }
-        button { background: #3498db; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; width: 100%; font-weight: bold; }
-        button:hover { background: #2980b9; }
-        #result { margin-top: 20px; padding: 15px; border-radius: 6px; text-align: center; font-size: 1.2em; display: none; }
-        .citation { font-size: 0.85em; color: #7f8c8d; font-style: italic; margin-top: 5px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 850px; margin: 20px auto; padding: 20px; background-color: #f0f2f5; }
+        .quiz-container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h1 { color: #1a73e8; text-align: center; border-bottom: 2px solid #e8eaed; padding-bottom: 15px; }
+        .question { margin-bottom: 30px; padding: 15px; border-left: 5px solid #1a73e8; background: #f8f9fa; }
+        .question p { font-weight: 600; margin-top: 0; color: #202124; }
+        label { display: block; margin: 10px 0; cursor: pointer; color: #3c4043; transition: 0.2s; }
+        label:hover { color: #1a73e8; background-color: #e8f0fe; padding-left: 5px; border-radius: 4px;}
+        button { background: #1a73e8; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 18px; width: 100%; margin-top: 20px; font-weight: bold; }
+        button:hover { background: #1557b0; }
+        #result { margin-top: 25px; padding: 20px; border-radius: 8px; font-weight: bold; text-align: center; font-size: 1.3em; display: none; }
+        .citation { font-size: 0.8em; color: #70757a; font-style: italic; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="quiz-card">
+<div class="quiz-container">
     <h1>Solar Resource Technical Quiz</h1>
-    <form id="solarQuiz">
+    <form id="quizForm">
         
-        <!-- Question 1 -->
         <div class="question">
-            <p>1. For a fixed, south-facing collector in the Northern Hemisphere, what tilt angle achieved the best average year-round performance?</p>
-            <label><input type="radio" name="q1" value="a"> Tilt equal to local latitude (\(L\))</label>
-            <label><input type="radio" name="q1" value="b"> Tilt equal to \(L - 15^\circ\)</label>
-            <label><input type="radio" name="q1" value="c"> Tilt equal to \(0^\circ\) (Horizontal)</label>
-            <div class="citation">Source: [1], [2], [3]</div>
+            <p>1. What is the rule of thumb for the tilt angle of a south-facing collector in the Northern Hemisphere for best <b>year-round</b> performance?</p>
+            <label><input type="radio" name="q1" value="a"> a) Tilted at an angle equal to the local latitude (\(L\))</label>
+            <label><input type="radio" name="q1" value="b"> b) Tilted at an angle of \(90^\circ\) (Vertical)</label>
+            <label><input type="radio" name="q1" value="c"> c) Tilted at an angle of \(0^\circ\) (Flat)</label>
+            <label><input type="radio" name="q1" value="d"> d) Tilted at Latitude + \(23.45^\circ\)</label>
+            <div class="citation">Source: The Solar Resource Ch 7</div>
         </div>
 
-        <!-- Question 2 -->
         <div class="question">
-            <p>2. To optimize for best average SUMMER performance, the collector should be mounted at approximately:</p>
-            <label><input type="radio" name="q2" value="a"> \(L + 15^\circ\)</label>
-            <label><input type="radio" name="q2" value="b"> \(L - 15^\circ\)</label>
-            <label><input type="radio" name="q2" value="c"> \(L - \delta\)</label>
-            <div class="citation">Source: [4]</div>
+            <p>2. For optimal <b>SUMMER</b> performance, at what angle should the collector be mounted?</p>
+            <label><input type="radio" name="q2" value="a"> a) Approximately Latitude \(+\) \(15^\circ\)</label>
+            <label><input type="radio" name="q2" value="b"> b) Approximately Latitude \(-\) \(15^\circ\)</label>
+            <label><input type="radio" name="q2" value="c"> c) Exactly at Latitude</label>
+            <label><input type="radio" name="q2" value="d"> d) At a \(0^\circ\) tilt (Horizontal)</label>
+            <div class="citation">Source: ECET 44033-4349 Lecture Notes</div>
         </div>
 
-        <!-- Question 3 -->
         <div class="question">
-            <p>3. To optimize for best average WINTER performance, the collector should be mounted at approximately:</p>
-            <label><input type="radio" name="q3" value="a"> \(L + 15^\circ\)</label>
-            <label><input type="radio" name="q3" value="b"> \(L - 15^\circ\)</label>
-            <label><input type="radio" name="q3" value="c"> \(90^\circ\)</label>
-            <div class="citation">Source: [4]</div>
+            <p>3. For optimal <b>WINTER</b> performance, at what angle should the collector be mounted?</p>
+            <label><input type="radio" name="q3" value="a"> a) Approximately Latitude \(+\) \(15^\circ\)</label>
+            <label><input type="radio" name="q3" value="b"> b) Approximately Latitude \(-\) \(15^\circ\)</label>
+            <label><input type="radio" name="q3" value="c"> c) Tilted at \(90^\circ\)</label>
+            <label><input type="radio" name="q3" value="d"> d) Tilted at \(45^\circ\)</label>
+            <div class="citation">Source: ECET 44033-4349 Lecture Notes</div>
         </div>
 
-        <!-- Question 4 -->
         <div class="question">
-            <p>4. Which angle represents the solar altitude (\(\beta_N\)) at solar noon?</p>
-            <label><input type="radio" name="q4" value="a"> \(\beta_N = 90^\circ - L + \delta\)</label>
-            <label><input type="radio" name="q4" value="b"> \(\beta_N = L - \delta\)</label>
-            <label><input type="radio" name="q4" value="c"> \(\beta_N = 90^\circ - (L - \delta)\)</label>
-            <div class="citation">Source: [1], [3], [5]</div>
+            <p>4. Which angle is defined as the angle between the sun and the local horizon directly beneath the sun?</p>
+            <label><input type="radio" name="q4" value="a"> a) Azimuth angle (\(\phi_S\))</label>
+            <label><input type="radio" name="q4" value="b"> b) Altitude angle (\(\beta\))</label>
+            <label><input type="radio" name="q4" value="c"> Declination angle (\(\delta\))</label>
+            <label><input type="radio" name="q4" value="d"> d) Hour angle (\(H\))</label>
+            <div class="citation">Source: The Solar Resource Ch 7</div>
         </div>
 
-        <!-- Question 5 -->
         <div class="question">
             <p>5. The solar declination (\(\delta\)) varies sinusoidally throughout the year between which extremes?</p>
-            <label><input type="radio" name="q5" value="a"> \(\pm 45^\circ\)</label>
-            <label><input type="radio" name="q5" value="b"> \(\pm 23.45^\circ\)</label>
-            <label><input type="radio" name="q5" value="c"> \(\pm 90^\circ\)</label>
-            <div class="citation">Source: [1], [6]</div>
+            <label><input type="radio" name="q5" value="a"> a) \(\pm 45^\circ\)</label>
+            <label><input type="radio" name="q5" value="b"> b) \(\pm 90^\circ\)</label>
+            <label><input type="radio" name="q5" value="c"> c) \(\pm 23.45^\circ\)</label>
+            <label><input type="radio" name="q5" value="d"> d) \(\pm 15^\circ\)</label>
+            <div class="citation">Source: The Solar Resource Ch 7</div>
         </div>
 
-        <!-- Question 6 -->
         <div class="question">
-            <p>6. According to the sources, how is one "Peak Sun Hour" calculated for a day's total irradiation?</p>
-            <label><input type="radio" name="q6" value="a"> Dividing total Wh/m² by \(500 \text{ W/m}^2\)</label>
-            <label><input type="radio" name="q6" value="b"> Dividing total Wh/m² by \(1000 \text{ W/m}^2\)</label>
-            <label><input type="radio" name="q6" value="c"> Multiplying total hours by the altitude angle</label>
-            <div class="citation">Source: [7], [8]</div>
+            <p>6. At what solar time is the sun directly over the local line of longitude?</p>
+            <label><input type="radio" name="q6" value="a"> a) Solar Noon</label>
+            <label><input type="radio" name="q6" value="b"> b) 12:00 PM Civil Time</label>
+            <label><input type="radio" name="q6" value="c"> c) Sunrise</label>
+            <label><input type="radio" name="q6" value="d"> d) Sunset</label>
+            <div class="citation">Source: The Solar Resource Ch 7</div>
         </div>
 
-        <!-- Question 7 -->
         <div class="question">
             <p>7. If the earth rotates at \(15^\circ/\text{hr}\), what is the Hour Angle (\(H\)) at 11:00 AM solar time?</p>
-            <label><input type="radio" name="q7" value="a"> \(-15^\circ\)</label>
-            <label><input type="radio" name="q7" value="b"> \(+15^\circ\)</label>
-            <label><input type="radio" name="q7" value="c"> \(0^\circ\)</label>
-            <div class="citation">Source: [9], [10]</div>
+            <label><input type="radio" name="q7" value="a"> a) \(-15^\circ\)</label>
+            <label><input type="radio" name="q7" value="b"> b) \(+15^\circ\)</label>
+            <label><input type="radio" name="q7" value="c"> c) \(0^\circ\)</label>
+            <label><input type="radio" name="q7" value="d"> d) \(+30^\circ\)</label>
+            <div class="citation">Source: ECET 44033-4349 Lecture Notes</div>
         </div>
 
-        <!-- Question 8 -->
         <div class="question">
-            <p>8. What is the "Solar Window"?</p>
-            <label><input type="radio" name="q8" value="a"> The sky area between the summer and winter solstice sun paths</label>
-            <label><input type="radio" name="q8" value="b"> The angle of a window facing south</label>
-            <label><input type="radio" name="q8" value="c"> The distance between the earth and sun at equinox</label>
-            <div class="citation">Source: [8]</div>
+            <p>8. What is the area of the sky between the sun's path at the summer and winter solstices called?</p>
+            <label><input type="radio" name="q8" value="a"> a) Solar Window</label>
+            <label><input type="radio" name="q8" value="b"> b) Solar Meridian</label>
+            <label><input type="radio" name="q8" value="c"> c) Zenith Range</label>
+            <label><input type="radio" name="q8" value="d"> d) Incidence Zone</label>
+            <div class="citation">Source: ECET 44033-4349 Lecture Notes</div>
         </div>
 
-        <!-- Question 9 -->
         <div class="question">
-            <p>9. What is the formula for Air Mass (\(m\)) under the simple assumption of a flat earth?</p>
-            <label><input type="radio" name="q9" value="a"> \(m = \sin \beta\)</label>
-            <label><input type="radio" name="q9" value="b"> \(m = 1/\sin \beta\)</label>
-            <label><input type="radio" name="q9" value="c"> \(m = 90^\circ - \beta\)</label>
-            <div class="citation">Source: [11], [12], [13]</div>
+            <p>9. One "Peak Sun Hour" is defined as the number of hours required for a day's irradiation to accumulate at what irradiance level?</p>
+            <label><input type="radio" name="q9" value="a"> a) \(500 \text{ W/m}^2\)</label>
+            <label><input type="radio" name="q9" value="b"> b) \(1000 \text{ W/m}^2\)</label>
+            <label><input type="radio" name="q9" value="c"> c) \(1370 \text{ W/m}^2\)</label>
+            <label><input type="radio" name="q9" value="d"> d) \(800 \text{ W/m}^2\)</label>
+            <div class="citation">Source: ECET 44033-4349 Lecture Notes</div>
         </div>
 
-        <button type="button" onclick="checkScore()">Submit Quiz</button>
+        <button type="button" onclick="calculateScore()">Check Final Score</button>
     </form>
     <div id="result"></div>
 </div>
 
 <script>
-    function checkScore() {
-        const answers = { q1: "a", q2: "b", q3: "a", q4: "a", q5: "b", q6: "b", q7: "b", q8: "a", q9: "b" };
+    function calculateScore() {
+        // Answer Key
+        const answers = { 
+            q1: "a", // Lat
+            q2: "b", // Lat - 15 (Summer)
+            q3: "a", // Lat + 15 (Winter)
+            q4: "b", // Altitude
+            q5: "c", // +/- 23.45
+            q6: "a", // Solar Noon
+            q7: "a", // -15 deg (11am is before noon) 
+            q8: "a", // Solar Window
+            q9: "b"  // 1000 W/m2
+        };
+        
         let score = 0;
-        const form = document.getElementById('solarQuiz');
+        const total = 9;
+        const form = document.getElementById('quizForm');
+        let missedQuestions = [];
         
         for (let key in answers) {
             const selected = form.elements[key].value;
             if (selected === answers[key]) {
                 score++;
+            } else {
+                // Optional: track missed questions
+                missedQuestions.push(key);
             }
         }
         
-        const resDiv = document.getElementById('result');
-        resDiv.style.display = 'block';
-        resDiv.innerHTML = "You scored " + score + " out of 9!";
-        resDiv.style.backgroundColor = score >= 7 ? "#d4edda" : "#f8d7da";
-        resDiv.style.color = score >= 7 ? "#155724" : "#721c24";
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `Result: ${score} out of ${total} correct!`;
+        
+        if (score === total) {
+            resultDiv.style.backgroundColor = "#e6f4ea";
+            resultDiv.style.color = "#137333";
+            resultDiv.innerHTML += "<br>Excellent work!";
+        } else {
+            resultDiv.style.backgroundColor = "#fef7e0";
+            resultDiv.style.color = "#b06000";
+            resultDiv.innerHTML += "<br>Review the materials and try again.";
+        }
     }
 </script>
 
